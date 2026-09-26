@@ -42,16 +42,32 @@ const FILES = [
 
 // Manual first, so structuring can cite its pages.
 for (const f of FILES) {
-  const bytes = await Deno.readFile(new URL(`data/sample/${f.file}`, root));
-  const path = `${me!.company_id}/${crypto.randomUUID()}-${f.file}`;
-  const up = await engineer.storage.from('documents').upload(path, bytes, { contentType: f.mime });
-  if (up.error) throw up.error;
-  const { data: doc, error } = await engineer
+  // Resume an unfinished import of the same file instead of uploading it again.
+  const { data: existing } = await engineer
     .from('documents')
-    .insert({ company_id: me!.company_id, kind: f.kind, title: f.title, file_name: f.file, storage_path: path, mime_type: f.mime, uploaded_by: engineerUser!.id })
-    .select('id')
-    .single();
-  if (error) throw error;
+    .select('id, status')
+    .eq('file_name', f.file)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (existing?.status === 'ready') {
+    console.log(`  ${f.kind}: already imported`);
+    continue;
+  }
+  let doc = existing?.status === 'processing' || existing?.status === 'uploaded' ? existing : null;
+  if (!doc) {
+    const bytes = await Deno.readFile(new URL(`data/sample/${f.file}`, root));
+    const path = `${me!.company_id}/${crypto.randomUUID()}-${f.file}`;
+    const up = await engineer.storage.from('documents').upload(path, bytes, { contentType: f.mime });
+    if (up.error) throw up.error;
+    const inserted = await engineer
+      .from('documents')
+      .insert({ company_id: me!.company_id, kind: f.kind, title: f.title, file_name: f.file, storage_path: path, mime_type: f.mime, uploaded_by: engineerUser!.id })
+      .select('id, status')
+      .single();
+    if (inserted.error) throw inserted.error;
+    doc = inserted.data;
+  }
 
   const t0 = Date.now();
   for (let i = 0; i < 100; i++) {

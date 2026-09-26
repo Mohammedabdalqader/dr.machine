@@ -354,9 +354,14 @@ async function structureGroup(ctx: Ctx, group: { id: string; label: string; case
   const hours = cases.map((c) => Number(c.hours)).filter((h) => h > 0).sort((a, b) => a - b);
   const estimatedMinutes = hours.length ? Math.round(hours[Math.floor(hours.length / 2)] * 60) : null;
 
-  const manualRefs = manual
-    .filter((m) => structured.manual_refs_used.includes(m.ref))
-    .map((m) => ({ document_id: m.documentId, page: m.page }));
+  // Several chunks can come from the same page: cite each page once.
+  const manualRefs = [
+    ...new Map(
+      manual
+        .filter((m) => structured.manual_refs_used.includes(m.ref))
+        .map((m) => [`${m.documentId}:${m.page}`, { document_id: m.documentId, page: m.page }]),
+    ).values(),
+  ];
 
   const { manual_refs_used: _used, ...fields } = structured;
   const { data: record, error: insertError } = await admin

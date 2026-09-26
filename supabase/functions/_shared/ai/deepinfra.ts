@@ -41,26 +41,37 @@ export class DeepInfraProvider implements AIProvider {
   async chatJSON<T>(options: ChatJSONOptions<T>): Promise<ChatJSONResult<T>> {
     const model = this.config.models[options.purpose];
     const started = Date.now();
-    const res = await this.request('/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model,
-        messages: options.messages,
-        temperature: options.temperature ?? 0.1,
-        max_tokens: options.maxTokens ?? 2048,
-        response_format: { type: 'json_object' },
-      }),
-    });
-    const body = await res.json();
-    const content: string = body.choices?.[0]?.message?.content ?? '';
-    let data: T;
-    try {
-      data = options.validate(parseModelJSON(content));
-    } catch (err) {
-      throw new AIError(`AI returned invalid JSON for ${options.purpose}: ${(err as Error).message}`, undefined, true);
+    // Strict JSON mode first. Some models degrade under constrained decoding
+    // (e.g. returning {"": ""}), so a failed attempt is retried once in plain mode.
+    let lastError = '';
+    for (const jsonMode of [true, false]) {
+      const res = await this.request('/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model,
+          messages: jsonMode
+            ? options.messages
+            : [...options.messages, { role: 'user', content: 'Answer with the JSON object only, no other text.' }],
+          temperature: options.temperature ?? 0.1,
+          max_tokens: options.maxTokens ?? 2048,
+          ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
+        }),
+      });
+      const body = await res.json();
+      const choice = body.choices?.[0];
+      const content: string = choice?.message?.content ?? '';
+      try {
+        const data = options.validate(parseModelJSON(content));
+        return { data, usage: usage(model, body.usage, started) };
+      } catch (err) {
+        // Keep a short excerpt so failures can be diagnosed from the logs.
+        const excerpt = content.replace(/\s+/g, ' ').slice(0, 300);
+        lastError = `${(err as Error).message} (finish=${choice?.finish_reason}, json_mode=${jsonMode}). Got: ${excerpt}`;
+        console.warn(`invalid JSON from ${model} for ${options.purpose}: ${lastError}`);
+      }
     }
-    return { data, usage: usage(model, body.usage, started) };
+    throw new AIError(`AI returned invalid JSON for ${options.purpose} (${model}): ${lastError}`, undefined, true);
   }
 
   async embed(texts: string[]): Promise<{ vectors: number[][]; usage: Usage }> {

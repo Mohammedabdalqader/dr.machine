@@ -157,8 +157,20 @@ export async function structureRecord(
           '- safety_notes: always at least one (lockout/tagout, stored pressure, hot surfaces, electrical, PPE as relevant).\n' +
           '- requires_qualified: true when any step needs an electrician or other certified person.\n' +
           '- manual_refs_used: the refs ("m1"...) of manual excerpts you actually used.\n' +
-          'Return JSON with keys: title, component, symptoms, error_codes (array), root_cause, fix_steps (array), ' +
-          'parts (array), tools (array), safety_notes (array), requires_qualified (boolean), manual_refs_used (array).',
+          'Return exactly one JSON object with this shape (fill in every field):\n' +
+          JSON.stringify({
+            title: 'short name of the fault',
+            component: 'affected component',
+            symptoms: 'what the technician observes',
+            error_codes: ['E101'],
+            root_cause: 'the underlying cause',
+            fix_steps: ['step 1', 'step 2'],
+            parts: ['part name'],
+            tools: ['tool name'],
+            safety_notes: ['safety step'],
+            requires_qualified: false,
+            manual_refs_used: ['m1'],
+          }),
       },
       {
         role: 'user',
