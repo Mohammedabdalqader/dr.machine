@@ -4,12 +4,56 @@
     "tagline": "خبرة أفضل فني في شركتك، في جيب كل فني",
     "sampleBadge": "بيانات تجريبية"
   },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "retry": "حاول مرة أخرى",
+    "loading": "جارٍ التحميل…",
+    "search": "بحث",
+    "add": "إضافة",
+    "edit": "تعديل",
+    "none": "لا يوجد",
+    "all": "الكل",
+    "error": "حدث خطأ",
+    "required": "مطلوب",
+    "minutes": "{{count}} دقيقة",
+    "noResults": "لا يوجد شيء بعد"
+  },
   "language": {
     "label": "اللغة",
     "en": "English",
     "ar": "العربية"
   },
+  "roles": {
+    "technician": "فني",
+    "engineer": "مهندس",
+    "manager": "مدير",
+    "admin": "مسؤول النظام"
+  },
+  "auth": {
+    "title": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signIn": "دخول",
+    "signOut": "تسجيل الخروج",
+    "invalid": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "noProfile": "هذا الحساب غير مرتبط بشركة. تواصل مع مديرك.",
+    "noSignup": "يتم إنشاء الحسابات من قبل مدير الصيانة."
+  },
+  "setup": {
+    "title": "الخادم غير مُعدّ",
+    "hint": "أضف EXPO_PUBLIC_SUPABASE_URL و EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY إلى ملف mobile/.env.local ثم أعد التشغيل."
+  },
+  "tabs": {
+    "home": "الرئيسية",
+    "machines": "الماكينات",
+    "knowledge": "المعرفة",
+    "imports": "استيراد",
+    "team": "الفريق",
+    "settings": "الإعدادات"
+  },
   "home": {
+    "hello": "أهلاً، {{name}}",
     "loop": {
       "report": "بلّغ",
       "diagnose": "شخّص",
@@ -17,12 +61,120 @@
       "confirm": "أكّد",
       "learn": "تعلّم"
     },
-    "statusTitle": "حالة النظام",
+    "machines": "الماكينات",
+    "approved": "أعطال معتمدة",
+    "drafts": "بانتظار المراجعة",
+    "cases": "إصلاحات سابقة",
+    "reviewNow": "راجع المسودات",
+    "diagnoseSoon": "تشخيص الأعطال قادم في المرحلة التالية. حالياً افتح أي ماكينة لرؤية تاريخ إصلاحاتها."
+  },
+  "machines": {
+    "title": "الماكينات",
+    "add": "إضافة ماكينة",
+    "printQr": "طباعة ملصقات QR",
+    "tag": "رمز الماكينة",
+    "tagHint": "الاسم المكتوب على الماكينة، مثل C-02",
+    "model": "الموديل",
+    "line": "الخط",
+    "serial": "الرقم التسلسلي",
+    "installed": "تاريخ التركيب",
+    "installedHint": "سنة-شهر-يوم YYYY-MM-DD",
+    "notes": "ملاحظات",
+    "noLine": "بدون خط",
+    "noModel": "بدون موديل",
+    "history": "سجل الإصلاحات",
+    "noHistory": "لا توجد إصلاحات مسجلة لهذه الماكينة بعد.",
+    "qr": "ملصق QR",
+    "qrHint": "ألصقه على الماكينة. مسحه يفتح هذه الماكينة مباشرة.",
+    "shareQr": "طباعة / مشاركة الملصق",
+    "scanWith": "امسح بتطبيق المعلم",
+    "notFound": "الماكينة غير موجودة",
+    "tagTaken": "يوجد ماكينة أخرى بنفس الرمز",
+    "invalidDate": "استخدم الصيغة YYYY-MM-DD"
+  },
+  "knowledge": {
+    "title": "قاعدة المعرفة",
+    "draft": "مسودة",
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "allModels": "كل الموديلات",
+    "cases": "{{count}} حالات سابقة",
+    "symptoms": "الأعراض",
+    "errorCodes": "رموز الأعطال",
+    "rootCause": "السبب الجذري",
+    "component": "القطعة",
+    "titleField": "العنوان",
+    "fixSteps": "خطوات الإصلاح",
+    "parts": "قطع الغيار",
+    "tools": "العُدد",
+    "estimatedTime": "الوقت المتوقع (دقائق)",
+    "safety": "السلامة أولاً",
+    "qualified": "يحتاج شخص مؤهل (مثل كهربائي)",
+    "listHint": "عنصر واحد في كل سطر",
+    "codesHint": "افصل الرموز بفواصل",
+    "evidence": "الأدلة",
+    "pastCases": "إصلاحات سابقة",
+    "manualPages": "صفحات الدليل",
+    "manualPage": "{{title}} · صفحة {{page}}",
+    "version": "النسخة {{version}}",
+    "approve": "اعتماد",
+    "reject": "رفض",
+    "rejectConfirm": "رفض هذا السجل؟ لن يُستخدم في الإجابات.",
+    "saveDraft": "حفظ التعديلات",
+    "incomplete": "لا يمكن الاعتماد بعد:",
+    "conflict": "قام شخص آخر بتعديل هذا السجل. تم تحديثه.",
+    "approvedBy": "اعتُمد {{date}}",
+    "readOnly": "فقط المهندسون يمكنهم تعديل المعرفة.",
+    "empty": "لا توجد سجلات. استورد سجل أعطال لإنشاء مسودات."
+  },
+  "imports": {
+    "title": "استيراد المعرفة",
+    "hint": "ارفع سجل أعطال (Excel أو CSV) أو دليل ماكينة (PDF). يقوم الذكاء الاصطناعي بتنظيمه في مسودات لتراجعها.",
+    "pick": "اختر ملفاً",
+    "uploading": "جارٍ الرفع…",
+    "processing": "جارٍ المعالجة…",
+    "resume": "متابعة المعالجة",
+    "unsupported": "استخدم ملفات ‎.xlsx أو ‎.xls أو ‎.csv أو ‎.pdf",
+    "kind": {
+      "fault_log": "سجل أعطال",
+      "manual": "دليل"
+    },
+    "status": {
+      "uploaded": "بالانتظار",
+      "processing": "قيد المعالجة",
+      "ready": "جاهز",
+      "failed": "فشل"
+    },
+    "stage": {
+      "queued": "بالانتظار",
+      "mapping": "قراءة الأعمدة",
+      "grouping": "تجميع الأعطال المتكررة",
+      "structuring": "كتابة السجلات المنظمة",
+      "extracting": "قراءة الصفحات",
+      "embedding": "الفهرسة للبحث",
+      "done": "تم"
+    },
+    "statsLog": "{{rows}} سطر · {{drafts}} مسودة جديدة · {{linked}} أضيفت لسجلات موجودة",
+    "statsManual": "تمت فهرسة {{pages}} صفحة",
+    "goReview": "راجع المسودات الجديدة"
+  },
+  "team": {
+    "title": "الفريق",
+    "add": "إضافة شخص",
+    "fullName": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة مرور مؤقتة",
+    "passwordHint": "8 أحرف على الأقل. شاركها مع الشخص بشكل خاص.",
+    "role": "الدور",
+    "created": "تم إنشاء الحساب",
+    "lastSignIn": "آخر دخول {{date}}",
+    "neverSignedIn": "لم يسجل الدخول بعد"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "company": "الشركة",
     "backend": "الخادم",
-    "backendConnected": "متصل",
-    "backendMissing": "غير مُعدّ",
-    "backendError": "تعذّر الوصول إلى الخادم",
-    "backendHint": "أضف EXPO_PUBLIC_SUPABASE_URL و EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY إلى ملف mobile/.env.local",
-    "version": "الإصدار {{version}} · المرحلة 0"
+    "connected": "متصل"
   }
 }

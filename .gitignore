@@ -11,3 +11,7 @@ __pycache__/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Local-only credentials and tokens
+*.local
+*.local.json

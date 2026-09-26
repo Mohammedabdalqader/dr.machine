@@ -9,7 +9,11 @@ export type AppTextProps = TextProps & {
   color?: keyof ThemeColors;
 };
 
-/** Text that aligns to the reading direction of the current language. */
+/**
+ * Text aligned to the reading direction of the current language. The writing
+ * direction is left to the text itself, so English content inside the Arabic
+ * interface (and the reverse) keeps its punctuation in the right place.
+ */
 export function AppText({ variant = 'body', color = 'text', style, ...rest }: AppTextProps) {
   const theme = useTheme();
   const { rtl } = useLanguage();
@@ -17,7 +21,7 @@ export function AppText({ variant = 'body', color = 'text', style, ...rest }: Ap
     <Text
       style={[
         styles[variant],
-        { color: theme[color], textAlign: rtl ? 'right' : 'left', writingDirection: rtl ? 'rtl' : 'ltr' },
+        { color: theme[color], textAlign: rtl ? 'right' : 'left' },
         style,
       ]}
       {...rest}

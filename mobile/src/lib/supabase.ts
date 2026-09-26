@@ -30,16 +30,3 @@ if (supabase && Platform.OS !== 'web') {
     else supabase.auth.stopAutoRefresh();
   });
 }
-
-export type BackendStatus = 'missing' | 'connected' | 'error';
-
-/** Lightweight reachability check against the Auth health endpoint. */
-export async function checkBackend(): Promise<BackendStatus> {
-  if (!isSupabaseConfigured) return 'missing';
-  try {
-    const res = await fetch(`${url}/auth/v1/health`, { headers: { apikey: publishableKey! } });
-    return res.ok ? 'connected' : 'error';
-  } catch {
-    return 'error';
-  }
-}

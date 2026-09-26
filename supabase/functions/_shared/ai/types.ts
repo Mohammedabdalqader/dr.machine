@@ -30,8 +30,8 @@ export type ChatJSONOptions<T> = {
   maxTokens?: number;
   /** Validates and narrows the parsed JSON; throw to reject it. */
   validate: (value: unknown) => T;
-  /** Deterministic answer used by the mock provider (development without an API key). */
-  mock: () => T;
+  /** Raw (model-shaped) answer used by the mock provider; it also goes through `validate`. */
+  mock: () => unknown;
 };
 
 export type ChatJSONResult<T> = { data: T; usage: Usage };

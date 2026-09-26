@@ -4,12 +4,56 @@
     "tagline": "Your company's best technician, in every technician's pocket",
     "sampleBadge": "Sample data"
   },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "retry": "Try again",
+    "loading": "Loading…",
+    "search": "Search",
+    "add": "Add",
+    "edit": "Edit",
+    "none": "None",
+    "all": "All",
+    "error": "Something went wrong",
+    "required": "Required",
+    "minutes": "{{count}} min",
+    "noResults": "Nothing here yet"
+  },
   "language": {
     "label": "Language",
     "en": "English",
     "ar": "العربية"
   },
+  "roles": {
+    "technician": "Technician",
+    "engineer": "Engineer",
+    "manager": "Manager",
+    "admin": "Admin"
+  },
+  "auth": {
+    "title": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "invalid": "Email or password is incorrect",
+    "noProfile": "This account is not linked to a company. Ask your manager.",
+    "noSignup": "Accounts are created by your maintenance manager."
+  },
+  "setup": {
+    "title": "Backend not configured",
+    "hint": "Add EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY to mobile/.env.local, then restart."
+  },
+  "tabs": {
+    "home": "Home",
+    "machines": "Machines",
+    "knowledge": "Knowledge",
+    "imports": "Import",
+    "team": "Team",
+    "settings": "Settings"
+  },
   "home": {
+    "hello": "Hello, {{name}}",
     "loop": {
       "report": "Report",
       "diagnose": "Diagnose",
@@ -17,12 +61,120 @@
       "confirm": "Confirm",
       "learn": "Learn"
     },
-    "statusTitle": "System status",
-    "backend": "Backend",
-    "backendConnected": "Connected",
-    "backendMissing": "Not configured",
-    "backendError": "Cannot reach server",
-    "backendHint": "Add EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY to mobile/.env.local",
-    "version": "Version {{version}} · MVP phase 0"
+    "machines": "Machines",
+    "approved": "Approved faults",
+    "drafts": "Waiting for review",
+    "cases": "Past repairs",
+    "reviewNow": "Review drafts",
+    "diagnoseSoon": "Fault diagnosis arrives in the next phase. For now, open a machine to see its history."
+  },
+  "machines": {
+    "title": "Machines",
+    "add": "Add machine",
+    "printQr": "Print QR stickers",
+    "tag": "Machine tag",
+    "tagHint": "The name written on the machine, e.g. C-02",
+    "model": "Model",
+    "line": "Line",
+    "serial": "Serial number",
+    "installed": "Installed on",
+    "installedHint": "YYYY-MM-DD",
+    "notes": "Notes",
+    "noLine": "No line",
+    "noModel": "No model",
+    "history": "Repair history",
+    "noHistory": "No repairs recorded for this machine yet.",
+    "qr": "QR sticker",
+    "qrHint": "Stick this on the machine. Scanning it opens this machine directly.",
+    "shareQr": "Print / share sticker",
+    "scanWith": "Scan with Mu'allim",
+    "notFound": "Machine not found",
+    "tagTaken": "Another machine already has this tag",
+    "invalidDate": "Use the format YYYY-MM-DD"
+  },
+  "knowledge": {
+    "title": "Knowledge base",
+    "draft": "Draft",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "allModels": "All models",
+    "cases": "{{count}} past cases",
+    "symptoms": "Symptoms",
+    "errorCodes": "Error codes",
+    "rootCause": "Root cause",
+    "component": "Component",
+    "titleField": "Title",
+    "fixSteps": "Fix steps",
+    "parts": "Parts",
+    "tools": "Tools",
+    "estimatedTime": "Estimated time (minutes)",
+    "safety": "Safety first",
+    "qualified": "Needs a qualified person (e.g. electrician)",
+    "listHint": "One item per line",
+    "codesHint": "Separate codes with commas",
+    "evidence": "Evidence",
+    "pastCases": "Past repairs",
+    "manualPages": "Manual pages",
+    "manualPage": "{{title}} · page {{page}}",
+    "version": "Version {{version}}",
+    "approve": "Approve",
+    "reject": "Reject",
+    "rejectConfirm": "Reject this record? It will not be used in answers.",
+    "saveDraft": "Save changes",
+    "incomplete": "Cannot approve yet:",
+    "conflict": "Someone else changed this record. It has been reloaded.",
+    "approvedBy": "Approved {{date}}",
+    "readOnly": "Only engineers can edit knowledge.",
+    "empty": "No records. Import a fault log to create drafts."
+  },
+  "imports": {
+    "title": "Import knowledge",
+    "hint": "Upload a breakdown log (Excel or CSV) or a machine manual (PDF). The AI structures it into draft records for you to review.",
+    "pick": "Choose file",
+    "uploading": "Uploading…",
+    "processing": "Processing…",
+    "resume": "Continue processing",
+    "unsupported": "Use .xlsx, .xls, .csv or .pdf files",
+    "kind": {
+      "fault_log": "Fault log",
+      "manual": "Manual"
+    },
+    "status": {
+      "uploaded": "Waiting",
+      "processing": "Processing",
+      "ready": "Ready",
+      "failed": "Failed"
+    },
+    "stage": {
+      "queued": "Queued",
+      "mapping": "Reading columns",
+      "grouping": "Grouping repeated faults",
+      "structuring": "Writing structured records",
+      "extracting": "Reading pages",
+      "embedding": "Indexing for search",
+      "done": "Done"
+    },
+    "statsLog": "{{rows}} rows · {{drafts}} new drafts · {{linked}} added to existing",
+    "statsManual": "{{pages}} pages indexed",
+    "goReview": "Review the new drafts"
+  },
+  "team": {
+    "title": "Team",
+    "add": "Add person",
+    "fullName": "Full name",
+    "email": "Email",
+    "password": "Temporary password",
+    "passwordHint": "At least 8 characters. Share it with the person privately.",
+    "role": "Role",
+    "created": "Account created",
+    "lastSignIn": "Last sign-in {{date}}",
+    "neverSignedIn": "Never signed in"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "company": "Company",
+    "backend": "Server",
+    "connected": "Connected"
   }
 }
