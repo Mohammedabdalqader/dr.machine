@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": "Mu'allim",
+    "tagline": "Your company's best technician, in every technician's pocket",
+    "sampleBadge": "Sample data"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "home": {
+    "loop": {
+      "report": "Report",
+      "diagnose": "Diagnose",
+      "fix": "Fix",
+      "confirm": "Confirm",
+      "learn": "Learn"
+    },
+    "statusTitle": "System status",
+    "backend": "Backend",
+    "backendConnected": "Connected",
+    "backendMissing": "Not configured",
+    "backendError": "Cannot reach server",
+    "backendHint": "Add EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY to mobile/.env.local",
+    "version": "Version {{version}} · MVP phase 0"
+  }
+}

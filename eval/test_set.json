@@ -1,0 +1,305 @@
+{
+  "_note": "SAMPLE held-out test set. expected=null means the correct answer is 'not enough data'.",
+  "cases": [
+    {
+      "id": "T01",
+      "machine": "C-02",
+      "text": "Temperature alarm, it stops after about half an hour",
+      "error_code": "E101",
+      "expected": "F01",
+      "model": "RS-55",
+      "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+      "expected_component": "Oil cooler"
+    },
+    {
+      "id": "T02",
+      "machine": "C-01",
+      "text": "الكمبروسر بيطفي لحاله بعد نص ساعة وبيطلع انذار حرارة",
+      "error_code": null,
+      "expected": "F01",
+      "model": "RS-37",
+      "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+      "expected_component": "Oil cooler"
+    },
+    {
+      "id": "T03",
+      "machine": "C-03",
+      "text": "High temp alarm and the oil sight glass is almost empty",
+      "error_code": "E101",
+      "expected": "F02",
+      "model": "RS-37",
+      "expected_root_cause": "Low oil level in the separator tank.",
+      "expected_component": "Oil system"
+    },
+    {
+      "id": "T04",
+      "machine": "C-04",
+      "text": "Overheating within 10 minutes of start, the cooler is cold when I touch it",
+      "error_code": null,
+      "expected": "F03",
+      "model": "RS-55",
+      "expected_root_cause": "Thermostatic (thermal bypass) valve stuck closed, oil bypasses the cooler.",
+      "expected_component": "Thermostatic valve"
+    },
+    {
+      "id": "T05",
+      "machine": "C-01",
+      "text": "Cooling fan is not spinning",
+      "error_code": "E305",
+      "expected": "F04",
+      "model": "RS-37",
+      "expected_root_cause": "Cooling fan motor failed or its overload relay tripped.",
+      "expected_component": "Cooling fan motor"
+    },
+    {
+      "id": "T06",
+      "machine": "C-02",
+      "text": "Air delivery is low and pressure takes long to build up",
+      "error_code": "E210",
+      "expected": "F05",
+      "model": "RS-55",
+      "expected_root_cause": "Air intake filter element clogged.",
+      "expected_component": "Air intake filter"
+    },
+    {
+      "id": "T07",
+      "machine": "C-04",
+      "text": "انذار فرق ضغط السبريتر والامبير عالي",
+      "error_code": "E220",
+      "expected": "F06",
+      "model": "RS-55",
+      "expected_root_cause": "Oil separator element clogged (end of service life).",
+      "expected_component": "Oil separator element"
+    },
+    {
+      "id": "T08",
+      "machine": "C-03",
+      "text": "Production says there is oil coming out of the air tools, we are adding oil every week",
+      "error_code": null,
+      "expected": "F07",
+      "model": "RS-37",
+      "expected_root_cause": "Scavenge line orifice or strainer blocked, oil collects in the separator and carries over.",
+      "expected_component": "Scavenge line"
+    },
+    {
+      "id": "T09",
+      "machine": "C-01",
+      "text": "Compressor is running, motor on, but the pressure never goes up. No alarm.",
+      "error_code": null,
+      "expected": "F09",
+      "model": "RS-37",
+      "expected_root_cause": "Inlet (intake) valve stuck closed or its diaphragm torn.",
+      "expected_component": "Inlet valve"
+    },
+    {
+      "id": "T10",
+      "machine": "C-02",
+      "text": "It stays in unload mode",
+      "error_code": "E410",
+      "expected": "F10",
+      "model": "RS-55",
+      "expected_root_cause": "Loading solenoid valve coil burnt or connector loose.",
+      "expected_component": "Loading solenoid valve"
+    },
+    {
+      "id": "T11",
+      "machine": "C-04",
+      "text": "Machine running loaded non stop and still the plant pressure is low, you can hear air hissing near line 2",
+      "error_code": null,
+      "expected": "F11",
+      "model": "RS-55",
+      "expected_root_cause": "Air leaks in the distribution pipework, fittings or tools exceed compressor capacity.",
+      "expected_component": "Air distribution network"
+    },
+    {
+      "id": "T12",
+      "machine": "C-03",
+      "text": "Display shows pressure 25 bar then 0 then 14, jumping around",
+      "error_code": "E501",
+      "expected": "F12",
+      "model": "RS-37",
+      "expected_root_cause": "Pressure transducer failed or cable damaged.",
+      "expected_component": "Pressure transducer"
+    },
+    {
+      "id": "T13",
+      "machine": "C-01",
+      "text": "won't start, temperature shows -99",
+      "error_code": "E502",
+      "expected": "F13",
+      "model": "RS-37",
+      "expected_root_cause": "Discharge temperature sensor (PT1000) open circuit or connector corroded.",
+      "expected_component": "Temperature sensor"
+    },
+    {
+      "id": "T14",
+      "machine": "C-02",
+      "text": "Main motor tripped on overload, it's a very hot day",
+      "error_code": "E301",
+      "expected": "F14",
+      "model": "RS-55",
+      "expected_root_cause": "Main motor overload relay tripped due to high current (low supply voltage or high discharge pressure setting).",
+      "expected_component": "Main motor"
+    },
+    {
+      "id": "T15",
+      "machine": "C-04",
+      "text": "After the electricity maintenance yesterday the compressor won't start, phase alarm",
+      "error_code": "E310",
+      "expected": "F15",
+      "model": "RS-55",
+      "expected_root_cause": "Phase loss or wrong phase sequence on the incoming supply (blown fuse or supply work).",
+      "expected_component": "Power supply"
+    },
+    {
+      "id": "T16",
+      "machine": "C-03",
+      "text": "Alarm E001 and I cannot reset it",
+      "error_code": "E001",
+      "expected": "F16",
+      "model": "RS-37",
+      "expected_root_cause": "Emergency stop button pressed, or its contact block faulty.",
+      "expected_component": "Emergency stop"
+    },
+    {
+      "id": "T17",
+      "machine": "C-01",
+      "text": "صوت صفير قوي وقت التشغيل والهوا قليل",
+      "error_code": null,
+      "expected": "F17",
+      "model": "RS-37",
+      "expected_root_cause": "Drive belts worn or tension too low (belt-driven RS-37).",
+      "expected_component": "Drive belts"
+    },
+    {
+      "id": "T18",
+      "machine": "C-02",
+      "text": "Rumbling noise from the electric motor and a lot of vibration",
+      "error_code": null,
+      "expected": "F18",
+      "model": "RS-55",
+      "expected_root_cause": "Main motor bearing worn or lacking grease.",
+      "expected_component": "Main motor bearings"
+    },
+    {
+      "id": "T19",
+      "machine": "C-03",
+      "text": "Water in the air lines at the packing machines, the auto drain never opens",
+      "error_code": null,
+      "expected": "F19",
+      "model": "RS-37",
+      "expected_root_cause": "Electronic condensate drain valve blocked or its timer/strainer faulty.",
+      "expected_component": "Condensate drain"
+    },
+    {
+      "id": "T20",
+      "machine": "C-04",
+      "text": "When I restart it right after stopping, it fails to start",
+      "error_code": "E302",
+      "expected": "F21",
+      "model": "RS-55",
+      "expected_root_cause": "Blowdown (vent) valve not venting the sump at stop, so the motor restarts against pressure.",
+      "expected_component": "Blowdown valve"
+    },
+    {
+      "id": "T21",
+      "machine": "C-01",
+      "text": "Contactors clicking and chattering during start, motor stalls",
+      "error_code": "E303",
+      "expected": "F22",
+      "model": "RS-37",
+      "expected_root_cause": "Worn star-delta contactor or faulty transition timer.",
+      "expected_component": "Star-delta starter"
+    },
+    {
+      "id": "T22",
+      "machine": "C-02",
+      "text": "There is oil on the floor under the compressor",
+      "error_code": null,
+      "expected": "F23",
+      "model": "RS-55",
+      "expected_root_cause": "Oil leak from a hose, fitting or the oil filter gasket.",
+      "expected_component": "Oil hoses and fittings"
+    },
+    {
+      "id": "T23",
+      "machine": "C-03",
+      "text": "Service due message, oil looks very dark",
+      "error_code": "E601",
+      "expected": "F24",
+      "model": "RS-37",
+      "expected_root_cause": "Service interval exceeded; oil degraded and oil filter clogged.",
+      "expected_component": "Compressor oil"
+    },
+    {
+      "id": "T24",
+      "machine": "C-04",
+      "text": "Dew point alarm and water in the lines",
+      "error_code": "E701",
+      "expected": "F27",
+      "model": "RS-55",
+      "expected_root_cause": "Dryer condenser dirty or dryer drain blocked (RS-55 integrated dryer).",
+      "expected_component": "Integrated refrigerated dryer"
+    },
+    {
+      "id": "T25",
+      "machine": "C-01",
+      "text": "Compressor loads and unloads every few seconds",
+      "error_code": null,
+      "expected": "F28",
+      "model": "RS-37",
+      "expected_root_cause": "Pressure band too narrow or air receiver too small for the demand pattern.",
+      "expected_component": "Pressure settings"
+    },
+    {
+      "id": "T26",
+      "machine": "C-02",
+      "text": "Inverter shows DC bus overvoltage and the drive trips",
+      "error_code": "E801",
+      "expected": null,
+      "model": "RS-55",
+      "expected_root_cause": null,
+      "expected_component": null
+    },
+    {
+      "id": "T27",
+      "machine": "C-04",
+      "text": "Airend is seized, the motor hums but the screw won't turn even by hand",
+      "error_code": null,
+      "expected": null,
+      "model": "RS-55",
+      "expected_root_cause": null,
+      "expected_component": null
+    },
+    {
+      "id": "T28",
+      "machine": "C-03",
+      "text": "Coupling rubber pieces found inside the canopy, knocking noise",
+      "error_code": null,
+      "expected": null,
+      "model": "RS-37",
+      "expected_root_cause": null,
+      "expected_component": null
+    },
+    {
+      "id": "T29",
+      "machine": "C-01",
+      "text": "Touchscreen works but the remote start from the SCADA system does nothing",
+      "error_code": null,
+      "expected": null,
+      "model": "RS-37",
+      "expected_root_cause": null,
+      "expected_component": null
+    },
+    {
+      "id": "T30",
+      "machine": "C-02",
+      "text": "Receiver tank has visible corrosion and a small weep at a weld",
+      "error_code": null,
+      "expected": null,
+      "model": "RS-55",
+      "expected_root_cause": null,
+      "expected_component": null
+    }
+  ]
+}

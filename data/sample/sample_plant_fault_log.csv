@@ -1,0 +1,60 @@
+﻿Ref,Date,Machine,Problem,Action taken,Parts,Hrs,Tech
+WO-1001,25/01/2024,C-03,صوت صفير من السيور,replaced belts set,,,Ahmad K.
+WO-1002,29/01/2024,C-02,"runs loaded all the time, pressure low in plant","leak survey, fixed 11 leaks",Fittings and seals as needed,4.7,M. Saleh
+WO-1003,21-02-24,C-02 (RS-55),E303 star delta fault,"delta contactor pitted, replaced",,,Rami T.
+WO-1004,2024-02-28,C03,صوت صفير من السيور,replaced belts set,,0.8,Omar
+WO-1005,08-03-24,C04,المروحة واقفة,"reset fan OL relay, bearing noisy - ordered motor",Fan motor FM-1.1kW (if faulty),3.0,Omar
+WO-1006,20-03-24,C01,انذار السبريتر E220,"changed sep + gaskets, dp 0.3 now",Separator element OS-37 / OS-55,2.0,Ahmad K.
+WO-1007,2024-03-27,C02,"E601 service due, oil black",,,2.0,Rami T.
+WO-1008,03-04-24,comp 1,e-stop alarm,"e-stop contact block bad, replaced",E-stop contact block (if faulty),0.2,M. Saleh
+WO-1009,05-04-24,C-01 (RS-37),temp alarm E101 trips after half hour,"cleaned cooler w/ air gun, ok",,1.1,Ahmad K.
+WO-1010,10-04-24,comp 1,trips when restarting straight away,"blowdown ctrl line cracked, replaced",,1.6,Omar
+WO-1011,24/04/2024,C-03 (RS-37),تسريب زيت,,Oil hose or O-ring as needed,1.6,M. Saleh
+WO-1012,10.05.2024,C-04,"E502 wont start, display -99","sensor connector corroded, cleaned",,0.7,Ahmad K.
+WO-1013,11/05/2024,C-04 (RS-55),فصل اوفرلود الموتور E301,"voltage low 370V, told electrical dept, reset",,1.1,M. Saleh
+WO-1014,2024-06-05,C-01 (RS-37),"low air, filter alarm",غيرنا فلتر الهوا,Air filter element AF-37 / AF-55,0.4,Rami T.
+WO-1015,08/06/2024,C-04 (RS-55),e-stop alarm,,E-stop contact block (if faulty),0.4,Ahmad K.
+WO-1016,10/06/2024,C-03 (RS-37),E101 hi disch temp,"cleaned cooler w/ air gun, ok",,1.4,Omar
+WO-1017,10-06-24,C-02,"low air, filter alarm",,Air filter element AF-37 / AF-55,0.3,M. Saleh
+WO-1018,10-06-24,C-01 (RS-37),"never loads, solenoid alarm","loose connector on solenoid, fixed",Solenoid coil SV-24VDC,1.2,abu khaled
+WO-1019,14-06-24,comp 1,motor OL trip on hot day,"voltage low 370V, told electrical dept, reset",,0.8,Yousef
+WO-1020,22/06/2024,C-04,E210 filter,,,,M. Saleh
+WO-1021,15/07/2024,C04,safety valve blowing,"unload setpoint too high, reduced to 9.5 bar",Safety valve SV-14bar (if faulty),0.7,Omar
+WO-1022,05.08.2024,C02,"service overdue, temp higher",full service oil+filters,Compressor oil SA-Synth 46,3.0,Ahmad K.
+WO-1023,10-08-24,C-02,screen dead nothing works,"control fuse blown, replaced",Control fuse 2A,1.0,M. Saleh
+WO-1024,2024-08-17,C-01 (RS-37),high temp in summer only,"room fan not working, repaired + opened louvers",,0.9,abu khaled
+WO-1025,24.08.2024,C02,phase alarm wont start,blown fuse L2 replaced,,1.1,Ahmad K.
+WO-1026,15.09.2024,C-04 (RS-55),motor hot and noisy,"regreased bearings, noise less - monitor",Motor bearings 6313-2Z (DE/NDE),2.9,Omar
+WO-1027,2024-10-01,comp 1,oil in air line!! production complaining,cleaned scavenge strainer + orifice,Scavenge strainer SS-10 (if damaged),1.7,Omar
+WO-1028,2024-11-02,C02,"pressure dropping, hissing everywhere","leak survey, fixed 11 leaks",,4.5,Yousef
+WO-1029,19/11/2024,C01,trips when restarting straight away,"blowdown ctrl line cracked, replaced",,1.0,Omar
+WO-1030,22/11/2024,C-02,high temp in summer only,ducted hot air outside,,1.7,Yousef
+WO-1031,24.11.2024,C-04 (RS-55),حرارة عالية E101 بيفصل بعد نص ساعة,نظفنا الكولر بالهوا ورجع اشتغل,,1.3,Omar
+WO-1032,19-12-24,C-03 (RS-37),load unload every few sec,"band was 0.3 bar, set 1.0",,0.4,Ahmad K.
+WO-1033,23.12.2024,C02,"E101 temp high, oil low in glass",topped up oil 3L,Compressor oil SA-Synth 46,0.9,M. Saleh
+WO-1034,23-12-24,C02,drain not draining,"drain strainer blocked, cleaned",Drain valve service kit DV-K1,,Rami T.
+WO-1035,28/12/2024,C-03,motor noise grinding + vibration,,Motor bearings 6313-2Z (DE/NDE),7.2,abu khaled
+WO-1036,31.12.2024,C-03 (RS-37),"E101 temp high, oil low in glass","added oil, found small leak at drain valve",Compressor oil SA-Synth 46,0.6,Ahmad K.
+WO-1037,15.01.2025,C02,dew point high,,,,Yousef
+WO-1038,23/01/2025,C-02,E101 hi disch temp,,,1.3,Rami T.
+WO-1039,21.02.2025,C02,"pressure build very slow, sump ok line low","MPV spring broken, replaced kit",MPV service kit MPV-K2,1.0,Omar
+WO-1040,22.02.2025,comp 4,المروحة واقفة,"reset fan OL relay, bearing noisy - ordered motor",Fan motor FM-1.1kW (if faulty),3.3,Yousef
+WO-1041,26.02.2025,comp 4,dew point high,"dryer condenser dirty, cleaned",,1.5,Ahmad K.
+WO-1042,2025-03-12,C03,E101 hi disch temp,نظفنا الكولر بالهوا ورجع اشتغل,,,abu khaled
+WO-1043,24.03.2025,C03,مي بالخطوط,replaced drain valve kit,Drain valve service kit DV-K1,0.3,Ahmad K.
+WO-1044,27.03.2025,comp 2,stays unloaded E410,"coil burnt, replaced",Solenoid coil SV-24VDC,0.5,Omar
+WO-1045,2025-04-09,comp 3,"running but not loading, no alarm","inlet valve diaphragm torn, replaced kit",Inlet valve service kit IV-K3,2.6,Yousef
+WO-1046,19.04.2025,C-01 (RS-37),E210 filter,new AF element,,,Omar
+WO-1047,19/04/2025,C-01,تسريب زيت,hose fitting loose tightened + topped up,,,M. Saleh
+WO-1048,29/04/2025,C-04 (RS-55),"E220 sep dp high, amps high","changed sep + gaskets, dp 0.3 now",Separator element OS-37 / OS-55,1.8,Rami T.
+WO-1049,12/05/2025,comp 1,بشتغل بس ما بحمل,"intake valve stuck, cleaned + new kit",Inlet valve service kit IV-K3,2.3,Yousef
+WO-1050,04/06/2025,C04,E501 pressure reading crazy,replaced pressure transducer,Pressure transducer PT-16bar,,Omar
+WO-1051,2025-06-10,C04,فصل اوفرلود الموتور E301,"voltage low 370V, told electrical dept, reset",,1.4,Omar
+WO-1052,2025-06-19,C-02,oil in air line!! production complaining,"scavenge line blocked, cleaned orifice",Scavenge strainer SS-10 (if damaged),0.8,Rami T.
+WO-1053,2025-07-27,C-03 (RS-37),صوت صفير من السيور,changed 3 belts,V-belt set SPB-1600 (x3),1.7,Omar
+WO-1054,28/07/2025,C-03 (RS-37),phase alarm wont start,blown fuse L2 replaced,Fuses (if blown),,Omar
+WO-1055,05/08/2025,C-04,temp sensor fault E502,"sensor connector corroded, cleaned",Temperature sensor PT1000-TS2,1.0,abu khaled
+WO-1056,2025-08-18,comp 1,زيت ناقص وحرارة عالية,عبينا زيت,Compressor oil SA-Synth 46,,Yousef
+WO-1057,21.08.2025,C-03 (RS-37),overheat but cooler not hot,,Thermostatic element kit TV-71,1.4,Ahmad K.
+WO-1058,26.08.2025,C-02,temp alarm E101 trips after half hour,"cleaned cooler w/ air gun, ok",,1.3,Omar
+WO-1059,29.08.2025,C01,contactor chattering at start,star-delta timer was 3s set to 7s + new contactor,,2.1,Rami T.

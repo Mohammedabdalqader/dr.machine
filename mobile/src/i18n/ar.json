@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": "المعلم",
+    "tagline": "خبرة أفضل فني في شركتك، في جيب كل فني",
+    "sampleBadge": "بيانات تجريبية"
+  },
+  "language": {
+    "label": "اللغة",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "home": {
+    "loop": {
+      "report": "بلّغ",
+      "diagnose": "شخّص",
+      "fix": "صلّح",
+      "confirm": "أكّد",
+      "learn": "تعلّم"
+    },
+    "statusTitle": "حالة النظام",
+    "backend": "الخادم",
+    "backendConnected": "متصل",
+    "backendMissing": "غير مُعدّ",
+    "backendError": "تعذّر الوصول إلى الخادم",
+    "backendHint": "أضف EXPO_PUBLIC_SUPABASE_URL و EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY إلى ملف mobile/.env.local",
+    "version": "الإصدار {{version}} · المرحلة 0"
+  }
+}
