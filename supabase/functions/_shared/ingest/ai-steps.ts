@@ -131,6 +131,8 @@ export type StructuredRecord = {
   tools: string[];
   safety_notes: string[];
   requires_qualified: boolean;
+  /** True only when the fault concerns a part that exists on this model only (e.g. belts, integrated dryer). */
+  model_specific: boolean;
   manual_refs_used: string[];
 };
 
@@ -156,6 +158,8 @@ export async function structureRecord(
           '- fix_steps: ordered, imperative, one action per step; start with isolating/stopping the machine when relevant.\n' +
           '- safety_notes: always at least one (lockout/tagout, stored pressure, hot surfaces, electrical, PPE as relevant).\n' +
           '- requires_qualified: true when any step needs an electrician or other certified person.\n' +
+          '- model_specific: true ONLY if the fault concerns a part that exists on the given machine model and not on ' +
+          'others (check the manual excerpts); otherwise false. Most faults apply to all models.\n' +
           '- manual_refs_used: the refs ("m1"...) of manual excerpts you actually used.\n' +
           'Return exactly one JSON object with this shape (fill in every field):\n' +
           JSON.stringify({
@@ -169,6 +173,7 @@ export async function structureRecord(
             tools: ['tool name'],
             safety_notes: ['safety step'],
             requires_qualified: false,
+            model_specific: false,
             manual_refs_used: ['m1'],
           }),
       },
@@ -203,6 +208,7 @@ function validateStructured(value: unknown, manualRefs: Set<string>): Structured
     tools: list(v.tools),
     safety_notes: list(v.safety_notes),
     requires_qualified: Boolean(v.requires_qualified),
+    model_specific: v.model_specific === true,
     manual_refs_used: list(v.manual_refs_used).filter((r) => manualRefs.has(r)),
   };
   if (!out.symptoms || !out.root_cause) throw new Error('symptoms and root_cause are required');
@@ -223,6 +229,7 @@ function mockStructured(input: { label: string; cases: CaseForGrouping[] }): Str
     tools: [],
     safety_notes: ['Stop the machine and apply lockout/tagout before any work.'],
     requires_qualified: false,
+    model_specific: false,
     manual_refs_used: [],
   };
 }

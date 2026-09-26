@@ -36,6 +36,7 @@ Backend settings go in `mobile/.env.local` (see `mobile/.env.example`).
 | Schema, row-level security, storage bucket | `supabase/migrations/` (`npx supabase db push`) |
 | `ingest-step` | Resumable import: fault log → columns → grouped cases → draft records; manual PDF → page chunks → embeddings |
 | `records` | Create / edit / approve / reject knowledge; versions, audit log, embeddings on approval |
+| `diagnose` | The 7-step diagnosis: context, photos + report understanding, search (code + keywords + meaning), ranking from evidence only, confidence gate, safety, logging |
 | `admin-users` | Managers list and create accounts (no public sign-up) |
 | `ai-health` | Shows the active AI provider; `?live=1` runs a tiny paid check |
 | `bootstrap-sample` | One-time creation of the SAMPLE company; disabled unless the `BOOTSTRAP_TOKEN` secret is set |
@@ -45,6 +46,15 @@ Sample account credentials are written to `supabase/.sample-users.local.json` (g
 
 Roles: **technician** sees approved knowledge and machines; **engineer** also imports and reviews;
 **manager** also manages the team; **admin** can additionally create admins.
+
+## Measuring AI quality
+
+```bash
+npx deno run -A eval/run-eval.ts          # 30 held-out cases through the deployed diagnose function
+npx deno run -A scripts/eval-ingestion.ts # grouping quality of the imported log vs ground truth
+```
+
+Results are written to `eval/results/`. Re-run after every change to prompts, search or models.
 
 ## Checks
 

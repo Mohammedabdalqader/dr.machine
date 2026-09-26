@@ -1,0 +1,892 @@
+{
+  "summary": {
+    "cases": 30,
+    "errors": 0,
+    "top1": "100%",
+    "top3": "100%",
+    "retrieval_recall": "100%",
+    "correct_not_enough_data": "40%",
+    "wrongly_declined": 0,
+    "safety_coverage": "100%",
+    "latency_p50_ms": 7065,
+    "latency_p95_ms": 19538
+  },
+  "results": [
+    {
+      "case": {
+        "id": "T01",
+        "machine": "C-02",
+        "text": "Temperature alarm, it stops after about half an hour",
+        "error_code": "E101",
+        "expected": "F01",
+        "model": "RS-55",
+        "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+        "expected_component": "Oil cooler"
+      },
+      "status": "answered",
+      "suggested": [
+        "F01",
+        "F25",
+        "F02"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (medium)",
+        "High temperature alarm in summer due to insufficient compressor room ventilation (medium)",
+        "Low oil level causing high temperature alarm E101 (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 15229,
+      "max_similarity": 0.605989,
+      "expected_similarity": 0.605989,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T02",
+        "machine": "C-01",
+        "text": "الكمبروسر بيطفي لحاله بعد نص ساعة وبيطلع انذار حرارة",
+        "error_code": null,
+        "expected": "F01",
+        "model": "RS-37",
+        "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+        "expected_component": "Oil cooler"
+      },
+      "status": "answered",
+      "suggested": [
+        "F01",
+        "F25",
+        "F23"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low)",
+        "High temperature alarm in summer due to insufficient compressor room ventilation (low)",
+        "Oil leak from loose hose fitting on RS-37 compressor (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 17551,
+      "max_similarity": 0.568489,
+      "expected_similarity": 0.519549,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T03",
+        "machine": "C-03",
+        "text": "High temp alarm and the oil sight glass is almost empty",
+        "error_code": "E101",
+        "expected": "F02",
+        "model": "RS-37",
+        "expected_root_cause": "Low oil level in the separator tank.",
+        "expected_component": "Oil system"
+      },
+      "status": "answered",
+      "suggested": [
+        "F02",
+        "F23",
+        "F01"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Low oil level causing high temperature alarm E101 (medium)",
+        "Oil leak from loose hose fitting on RS-37 compressor (medium)",
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 15203,
+      "max_similarity": 0.588041,
+      "expected_similarity": 0.550972,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T04",
+        "machine": "C-04",
+        "text": "Overheating within 10 minutes of start, the cooler is cold when I touch it",
+        "error_code": null,
+        "expected": "F03",
+        "model": "RS-55",
+        "expected_root_cause": "Thermostatic (thermal bypass) valve stuck closed, oil bypasses the cooler.",
+        "expected_component": "Thermostatic valve"
+      },
+      "status": "answered",
+      "suggested": [
+        "F03",
+        "F04",
+        "F01"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "High discharge temperature alarm with cold oil cooler (low)",
+        "Cooling fan stopped / fan motor overload (low)",
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 12577,
+      "max_similarity": 0.596198,
+      "expected_similarity": 0.577699,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T05",
+        "machine": "C-01",
+        "text": "Cooling fan is not spinning",
+        "error_code": "E305",
+        "expected": "F04",
+        "model": "RS-37",
+        "expected_root_cause": "Cooling fan motor failed or its overload relay tripped.",
+        "expected_component": "Cooling fan motor"
+      },
+      "status": "answered",
+      "suggested": [
+        "F04"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Cooling fan stopped / fan motor overload (high)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6936,
+      "max_similarity": 0.696582,
+      "expected_similarity": 0.696582,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T06",
+        "machine": "C-02",
+        "text": "Air delivery is low and pressure takes long to build up",
+        "error_code": "E210",
+        "expected": "F05",
+        "model": "RS-55",
+        "expected_root_cause": "Air intake filter element clogged.",
+        "expected_component": "Air intake filter"
+      },
+      "status": "answered",
+      "suggested": [
+        "F05"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Clogged air intake filter (E210) (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6758,
+      "max_similarity": 0.605985,
+      "expected_similarity": 0.600433,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T07",
+        "machine": "C-04",
+        "text": "انذار فرق ضغط السبريتر والامبير عالي",
+        "error_code": "E220",
+        "expected": "F06",
+        "model": "RS-55",
+        "expected_root_cause": "Oil separator element clogged (end of service life).",
+        "expected_component": "Oil separator element"
+      },
+      "status": "answered",
+      "suggested": [
+        "F06"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Separator differential pressure high (E220) (high)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 19495,
+      "max_similarity": 0.759557,
+      "expected_similarity": 0.759557,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T08",
+        "machine": "C-03",
+        "text": "Production says there is oil coming out of the air tools, we are adding oil every week",
+        "error_code": null,
+        "expected": "F07",
+        "model": "RS-37",
+        "expected_root_cause": "Scavenge line orifice or strainer blocked, oil collects in the separator and carries over.",
+        "expected_component": "Scavenge line"
+      },
+      "status": "answered",
+      "suggested": [
+        "F07",
+        "F23"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Oil carryover into air lines from blocked scavenge line orifice/strainer (low)",
+        "Oil leak from loose hose fitting on RS-37 compressor (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 19538,
+      "max_similarity": 0.606046,
+      "expected_similarity": 0.534675,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T09",
+        "machine": "C-01",
+        "text": "Compressor is running, motor on, but the pressure never goes up. No alarm.",
+        "error_code": null,
+        "expected": "F09",
+        "model": "RS-37",
+        "expected_root_cause": "Inlet (intake) valve stuck closed or its diaphragm torn.",
+        "expected_component": "Inlet valve"
+      },
+      "status": "answered",
+      "suggested": [
+        "F09",
+        "F09",
+        "F10"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Intake valve stuck - compressor runs but does not load (medium)",
+        "Inlet valve diaphragm torn - compressor runs but does not load (medium)",
+        "Loading solenoid connector loose - compressor never loads (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 20892,
+      "max_similarity": 0.647004,
+      "expected_similarity": 0.647004,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T10",
+        "machine": "C-02",
+        "text": "It stays in unload mode",
+        "error_code": "E410",
+        "expected": "F10",
+        "model": "RS-55",
+        "expected_root_cause": "Loading solenoid valve coil burnt or connector loose.",
+        "expected_component": "Loading solenoid valve"
+      },
+      "status": "answered",
+      "suggested": [
+        "F10",
+        "F10"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "E410 loading solenoid coil burnt - compressor stays unloaded (medium)",
+        "Loading solenoid connector loose - compressor never loads (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 8277,
+      "max_similarity": 0.618475,
+      "expected_similarity": 0.618475,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T11",
+        "machine": "C-04",
+        "text": "Machine running loaded non stop and still the plant pressure is low, you can hear air hissing near line 2",
+        "error_code": null,
+        "expected": "F11",
+        "model": "RS-55",
+        "expected_root_cause": "Air leaks in the distribution pipework, fittings or tools exceed compressor capacity.",
+        "expected_component": "Air distribution network"
+      },
+      "status": "answered",
+      "suggested": [
+        "F11"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Air leak causing low plant pressure (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7065,
+      "max_similarity": 0.608507,
+      "expected_similarity": 0.608507,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T12",
+        "machine": "C-03",
+        "text": "Display shows pressure 25 bar then 0 then 14, jumping around",
+        "error_code": "E501",
+        "expected": "F12",
+        "model": "RS-37",
+        "expected_root_cause": "Pressure transducer failed or cable damaged.",
+        "expected_component": "Pressure transducer"
+      },
+      "status": "answered",
+      "suggested": [
+        "F12"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "E501 Pressure Transducer Faulty (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6591,
+      "max_similarity": 0.613615,
+      "expected_similarity": 0.613615,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T13",
+        "machine": "C-01",
+        "text": "won't start, temperature shows -99",
+        "error_code": "E502",
+        "expected": "F13",
+        "model": "RS-37",
+        "expected_root_cause": "Discharge temperature sensor (PT1000) open circuit or connector corroded.",
+        "expected_component": "Temperature sensor"
+      },
+      "status": "answered",
+      "suggested": [
+        "F13"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "E502 Temperature Sensor Fault - Corroded Sensor Connector (RS-55) (high)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7704,
+      "max_similarity": 0.689362,
+      "expected_similarity": 0.689362,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T14",
+        "machine": "C-02",
+        "text": "Main motor tripped on overload, it's a very hot day",
+        "error_code": "E301",
+        "expected": "F14",
+        "model": "RS-55",
+        "expected_root_cause": "Main motor overload relay tripped due to high current (low supply voltage or high discharge pressure setting).",
+        "expected_component": "Main motor"
+      },
+      "status": "answered",
+      "suggested": [
+        "F14"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Motor overload trip due to low supply voltage (E301) on hot days (high)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6911,
+      "max_similarity": 0.686863,
+      "expected_similarity": 0.686863,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T15",
+        "machine": "C-04",
+        "text": "After the electricity maintenance yesterday the compressor won't start, phase alarm",
+        "error_code": "E310",
+        "expected": "F15",
+        "model": "RS-55",
+        "expected_root_cause": "Phase loss or wrong phase sequence on the incoming supply (blown fuse or supply work).",
+        "expected_component": "Power supply"
+      },
+      "status": "answered",
+      "suggested": [
+        "F15"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Phase alarm due to blown L2 fuse (high)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7012,
+      "max_similarity": 0.647777,
+      "expected_similarity": 0.647777,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T16",
+        "machine": "C-03",
+        "text": "Alarm E001 and I cannot reset it",
+        "error_code": "E001",
+        "expected": "F16",
+        "model": "RS-37",
+        "expected_root_cause": "Emergency stop button pressed, or its contact block faulty.",
+        "expected_component": "Emergency stop"
+      },
+      "status": "answered",
+      "suggested": [
+        "F16"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Emergency stop alarm due to faulty contact block (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 4094,
+      "max_similarity": 0.603289,
+      "expected_similarity": 0.603289,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T17",
+        "machine": "C-01",
+        "text": "صوت صفير قوي وقت التشغيل والهوا قليل",
+        "error_code": null,
+        "expected": "F17",
+        "model": "RS-37",
+        "expected_root_cause": "Drive belts worn or tension too low (belt-driven RS-37).",
+        "expected_component": "Drive belts"
+      },
+      "status": "answered",
+      "suggested": [
+        "F17",
+        "F05",
+        "F11"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Belt squealing on RS-37 drive belts (low)",
+        "Clogged air intake filter (E210) (low)",
+        "Air leak causing low plant pressure (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7360,
+      "max_similarity": 0.623815,
+      "expected_similarity": 0.587065,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T18",
+        "machine": "C-02",
+        "text": "Rumbling noise from the electric motor and a lot of vibration",
+        "error_code": null,
+        "expected": "F18",
+        "model": "RS-55",
+        "expected_root_cause": "Main motor bearing worn or lacking grease.",
+        "expected_component": "Main motor bearings"
+      },
+      "status": "answered",
+      "suggested": [
+        "F18",
+        "F18",
+        "F04"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Motor hot and noisy bearings (RS-55) - main motor bearing worn or lacking grease (medium)",
+        "Main motor grinding noise and vibration (RS-37) (medium)",
+        "Cooling fan stopped / fan motor overload (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6310,
+      "max_similarity": 0.67325,
+      "expected_similarity": 0.67325,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T19",
+        "machine": "C-03",
+        "text": "Water in the air lines at the packing machines, the auto drain never opens",
+        "error_code": null,
+        "expected": "F19",
+        "model": "RS-37",
+        "expected_root_cause": "Electronic condensate drain valve blocked or its timer/strainer faulty.",
+        "expected_component": "Condensate drain"
+      },
+      "status": "answered",
+      "suggested": [
+        "F19",
+        "F19"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Water in compressed air lines due to blocked condensate drain valve (medium)",
+        "Condensate drain strainer blocked (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7698,
+      "max_similarity": 0.651776,
+      "expected_similarity": 0.651776,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T20",
+        "machine": "C-04",
+        "text": "When I restart it right after stopping, it fails to start",
+        "error_code": "E302",
+        "expected": "F21",
+        "model": "RS-55",
+        "expected_root_cause": "Blowdown (vent) valve not venting the sump at stop, so the motor restarts against pressure.",
+        "expected_component": "Blowdown valve"
+      },
+      "status": "answered",
+      "suggested": [
+        "F21"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Blowdown control line cracked causing start trip (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 4336,
+      "max_similarity": 0.615814,
+      "expected_similarity": 0.55537,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T21",
+        "machine": "C-01",
+        "text": "Contactors clicking and chattering during start, motor stalls",
+        "error_code": "E303",
+        "expected": "F22",
+        "model": "RS-37",
+        "expected_root_cause": "Worn star-delta contactor or faulty transition timer.",
+        "expected_component": "Star-delta starter"
+      },
+      "status": "answered",
+      "suggested": [
+        "F22",
+        "F22"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Star-delta contactor chattering at start due to incorrect timer setting and worn contactor (high)",
+        "E303 Star-Delta Transition Fault - Pitted Delta Contactor (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5029,
+      "max_similarity": 0.769879,
+      "expected_similarity": 0.769879,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T22",
+        "machine": "C-02",
+        "text": "There is oil on the floor under the compressor",
+        "error_code": null,
+        "expected": "F23",
+        "model": "RS-55",
+        "expected_root_cause": "Oil leak from a hose, fitting or the oil filter gasket.",
+        "expected_component": "Oil hoses and fittings"
+      },
+      "status": "answered",
+      "suggested": [
+        "F23",
+        "F07"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Oil leak from loose hose fitting on RS-37 compressor (low)",
+        "Oil carryover into air lines from blocked scavenge line orifice/strainer (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5745,
+      "max_similarity": 0.577524,
+      "expected_similarity": 0.577524,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T23",
+        "machine": "C-03",
+        "text": "Service due message, oil looks very dark",
+        "error_code": "E601",
+        "expected": "F24",
+        "model": "RS-37",
+        "expected_root_cause": "Service interval exceeded; oil degraded and oil filter clogged.",
+        "expected_component": "Compressor oil"
+      },
+      "status": "answered",
+      "suggested": [
+        "F24"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Service Overdue with High Temperature (E601) (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 10130,
+      "max_similarity": 0.605308,
+      "expected_similarity": 0.605308,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T24",
+        "machine": "C-04",
+        "text": "Dew point alarm and water in the lines",
+        "error_code": "E701",
+        "expected": "F27",
+        "model": "RS-55",
+        "expected_root_cause": "Dryer condenser dirty or dryer drain blocked (RS-55 integrated dryer).",
+        "expected_component": "Integrated refrigerated dryer"
+      },
+      "status": "answered",
+      "suggested": [
+        "F27",
+        "F27",
+        "F19"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "high",
+      "titles": [
+        "Dryer high dew point alarm (E701) (high)",
+        "Dryer high dew point due to dirty condenser (RS-55) - E701 (high)",
+        "Condensate drain strainer blocked (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6827,
+      "max_similarity": 0.715397,
+      "expected_similarity": 0.715397,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T25",
+        "machine": "C-01",
+        "text": "Compressor loads and unloads every few seconds",
+        "error_code": null,
+        "expected": "F28",
+        "model": "RS-37",
+        "expected_root_cause": "Pressure band too narrow or air receiver too small for the demand pattern.",
+        "expected_component": "Pressure settings"
+      },
+      "status": "answered",
+      "suggested": [
+        "F28"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Short cycling due to narrow load/unload pressure band (RS-37) - resolved by widening band to 1.0 bar (medium)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 9598,
+      "max_similarity": 0.632427,
+      "expected_similarity": 0.632427,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T26",
+        "machine": "C-02",
+        "text": "Inverter shows DC bus overvoltage and the drive trips",
+        "error_code": "E801",
+        "expected": null,
+        "model": "RS-55",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "not_enough_data",
+      "suggested": [],
+      "top1": false,
+      "top3": false,
+      "declined": true,
+      "confidence": null,
+      "titles": [],
+      "safety_ok": true,
+      "latency_ms": 6481,
+      "max_similarity": 0.629552,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T27",
+        "machine": "C-04",
+        "text": "Airend is seized, the motor hums but the screw won't turn even by hand",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-55",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F18",
+        "F18"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Motor hot and noisy bearings (RS-55) - main motor bearing worn or lacking grease (low)",
+        "Main motor grinding noise and vibration (RS-37) (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 8629,
+      "max_similarity": 0.511384,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T28",
+        "machine": "C-03",
+        "text": "Coupling rubber pieces found inside the canopy, knocking noise",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-37",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F17"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Belt squealing on RS-37 drive belts (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5346,
+      "max_similarity": 0.586762,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T29",
+        "machine": "C-01",
+        "text": "Touchscreen works but the remote start from the SCADA system does nothing",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-37",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F26"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Control fuse blown - dead controller display (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5417,
+      "max_similarity": 0.515571,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T30",
+        "machine": "C-02",
+        "text": "Receiver tank has visible corrosion and a small weep at a weld",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-55",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "not_enough_data",
+      "suggested": [],
+      "top1": false,
+      "top3": false,
+      "declined": true,
+      "confidence": null,
+      "titles": [],
+      "safety_ok": true,
+      "latency_ms": 4156,
+      "max_similarity": 0.51419,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    }
+  ]
+}

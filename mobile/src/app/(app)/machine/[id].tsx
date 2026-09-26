@@ -41,6 +41,8 @@ export default function MachineScreen() {
     <Screen withHeader refreshing={history.loading} onRefresh={history.reload}>
       <Stack.Screen options={{ title: m.tag }} />
 
+      <Button label={t('diagnose.diagnoseMachine')} onPress={() => router.push({ pathname: '/report', params: { machine: m.id } })} />
+
       <Card>
         {details
           .filter(([, v]) => v)

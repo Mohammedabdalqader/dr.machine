@@ -1,0 +1,286 @@
+{
+  "summary": {
+    "cases": 9,
+    "errors": 0,
+    "top1": "100%",
+    "top3": "100%",
+    "retrieval_recall": "100%",
+    "correct_not_enough_data": "0%",
+    "wrongly_declined": 0,
+    "safety_coverage": "100%",
+    "latency_p50_ms": 5702,
+    "latency_p95_ms": 9373
+  },
+  "results": [
+    {
+      "case": {
+        "id": "T02",
+        "machine": "C-01",
+        "text": "الكمبروسر بيطفي لحاله بعد نص ساعة وبيطلع انذار حرارة",
+        "error_code": null,
+        "expected": "F01",
+        "model": "RS-37",
+        "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+        "expected_component": "Oil cooler"
+      },
+      "status": "answered",
+      "suggested": [
+        "F01",
+        "F25",
+        "F23"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low; model high, evidence low)",
+        "High temperature alarm in summer due to insufficient compressor room ventilation (low; model medium, evidence low)",
+        "Oil leak from loose hose fitting on RS-37 compressor (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 9373,
+      "max_similarity": 0.56853,
+      "expected_similarity": 0.519578,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T04",
+        "machine": "C-04",
+        "text": "Overheating within 10 minutes of start, the cooler is cold when I touch it",
+        "error_code": null,
+        "expected": "F03",
+        "model": "RS-55",
+        "expected_root_cause": "Thermostatic (thermal bypass) valve stuck closed, oil bypasses the cooler.",
+        "expected_component": "Thermostatic valve"
+      },
+      "status": "answered",
+      "suggested": [
+        "F03",
+        "F04",
+        "F01"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "High discharge temperature alarm with cold oil cooler (low; model high, evidence low)",
+        "Cooling fan stopped / fan motor overload (low; model medium, evidence low)",
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7306,
+      "max_similarity": 0.596165,
+      "expected_similarity": 0.577705,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T08",
+        "machine": "C-03",
+        "text": "Production says there is oil coming out of the air tools, we are adding oil every week",
+        "error_code": null,
+        "expected": "F07",
+        "model": "RS-37",
+        "expected_root_cause": "Scavenge line orifice or strainer blocked, oil collects in the separator and carries over.",
+        "expected_component": "Scavenge line"
+      },
+      "status": "answered",
+      "suggested": [
+        "F07",
+        "F23"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Oil carryover into air lines from blocked scavenge line orifice/strainer (low; model high, evidence low)",
+        "Oil leak from loose hose fitting on RS-37 compressor (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5114,
+      "max_similarity": 0.598987,
+      "expected_similarity": 0.549603,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T11",
+        "machine": "C-04",
+        "text": "Machine running loaded non stop and still the plant pressure is low, you can hear air hissing near line 2",
+        "error_code": null,
+        "expected": "F11",
+        "model": "RS-55",
+        "expected_root_cause": "Air leaks in the distribution pipework, fittings or tools exceed compressor capacity.",
+        "expected_component": "Air distribution network"
+      },
+      "status": "answered",
+      "suggested": [
+        "F11"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Air leak causing low plant pressure (low; model high, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5180,
+      "max_similarity": 0.617959,
+      "expected_similarity": 0.617959,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T17",
+        "machine": "C-01",
+        "text": "صوت صفير قوي وقت التشغيل والهوا قليل",
+        "error_code": null,
+        "expected": "F17",
+        "model": "RS-37",
+        "expected_root_cause": "Drive belts worn or tension too low (belt-driven RS-37).",
+        "expected_component": "Drive belts"
+      },
+      "status": "answered",
+      "suggested": [
+        "F17",
+        "F05",
+        "F11"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Belt squealing on RS-37 drive belts (low; model high, evidence low)",
+        "Clogged air intake filter (E210) (low; model medium, evidence low)",
+        "Air leak causing low plant pressure (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 8011,
+      "max_similarity": 0.640839,
+      "expected_similarity": 0.598565,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T22",
+        "machine": "C-02",
+        "text": "There is oil on the floor under the compressor",
+        "error_code": null,
+        "expected": "F23",
+        "model": "RS-55",
+        "expected_root_cause": "Oil leak from a hose, fitting or the oil filter gasket.",
+        "expected_component": "Oil hoses and fittings"
+      },
+      "status": "answered",
+      "suggested": [
+        "F23",
+        "F02"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "Oil leak from loose hose fitting on RS-37 compressor (medium; model medium, evidence medium)",
+        "Low oil level causing high temperature alarm E101 (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 5702,
+      "max_similarity": 0.620112,
+      "expected_similarity": 0.620112,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T27",
+        "machine": "C-04",
+        "text": "Airend is seized, the motor hums but the screw won't turn even by hand",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-55",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F18",
+        "F18"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Motor hot and noisy bearings (RS-55) - main motor bearing worn or lacking grease (low; model medium, evidence low)",
+        "Main motor grinding noise and vibration (RS-37) (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6091,
+      "max_similarity": 0.511311,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T28",
+        "machine": "C-03",
+        "text": "Coupling rubber pieces found inside the canopy, knocking noise",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-37",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F17"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Belt squealing on RS-37 drive belts (low; model medium, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 4617,
+      "max_similarity": 0.591699,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    },
+    {
+      "case": {
+        "id": "T29",
+        "machine": "C-01",
+        "text": "Touchscreen works but the remote start from the SCADA system does nothing",
+        "error_code": null,
+        "expected": null,
+        "model": "RS-37",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "answered",
+      "suggested": [
+        "F26"
+      ],
+      "top1": false,
+      "top3": false,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "Control fuse blown - dead controller display (low; model low, evidence low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 4588,
+      "max_similarity": 0.515571,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    }
+  ]
+}

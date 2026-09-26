@@ -51,7 +51,21 @@
           }
         }
       ],
-      "expo-sharing"
+      "expo-sharing",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Mu'allim uses the camera to scan machine QR stickers and photograph faults.",
+          "barcodeScannerEnabled": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Mu'allim uses the camera to photograph faults and error displays.",
+          "photosPermission": "Mu'allim attaches photos of faults to a diagnosis."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

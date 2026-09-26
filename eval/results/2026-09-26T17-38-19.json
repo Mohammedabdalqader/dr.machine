@@ -1,0 +1,104 @@
+{
+  "summary": {
+    "cases": 3,
+    "errors": 0,
+    "top1": "100%",
+    "top3": "100%",
+    "retrieval_recall": "100%",
+    "correct_not_enough_data": "100%",
+    "wrongly_declined": 0,
+    "safety_coverage": "100%",
+    "latency_p50_ms": 6794,
+    "latency_p95_ms": 7342
+  },
+  "results": [
+    {
+      "case": {
+        "id": "T01",
+        "machine": "C-02",
+        "text": "Temperature alarm, it stops after about half an hour",
+        "error_code": "E101",
+        "expected": "F01",
+        "model": "RS-55",
+        "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+        "expected_component": "Oil cooler"
+      },
+      "status": "answered",
+      "suggested": [
+        "F01",
+        "F25",
+        "F02"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "medium",
+      "titles": [
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (medium)",
+        "High temperature alarm in summer due to insufficient compressor room ventilation (medium)",
+        "Low oil level causing high temperature alarm E101 (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 6794,
+      "max_similarity": 0.608858,
+      "expected_similarity": 0.608858,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T02",
+        "machine": "C-01",
+        "text": "الكمبروسر بيطفي لحاله بعد نص ساعة وبيطلع انذار حرارة",
+        "error_code": null,
+        "expected": "F01",
+        "model": "RS-37",
+        "expected_root_cause": "Oil cooler fins blocked with dust, reducing cooling.",
+        "expected_component": "Oil cooler"
+      },
+      "status": "answered",
+      "suggested": [
+        "F01",
+        "F25",
+        "F23"
+      ],
+      "top1": true,
+      "top3": true,
+      "declined": false,
+      "confidence": "low",
+      "titles": [
+        "High discharge temperature alarm (E101) due to blocked oil cooler fins (low)",
+        "High temperature alarm in summer due to insufficient compressor room ventilation (low)",
+        "Oil leak from loose hose fitting on RS-37 compressor (low)"
+      ],
+      "safety_ok": true,
+      "latency_ms": 7342,
+      "max_similarity": 0.56853,
+      "expected_similarity": 0.519578,
+      "expected_retrieved": true
+    },
+    {
+      "case": {
+        "id": "T26",
+        "machine": "C-02",
+        "text": "Inverter shows DC bus overvoltage and the drive trips",
+        "error_code": "E801",
+        "expected": null,
+        "model": "RS-55",
+        "expected_root_cause": null,
+        "expected_component": null
+      },
+      "status": "not_enough_data",
+      "suggested": [],
+      "top1": false,
+      "top3": false,
+      "declined": true,
+      "confidence": null,
+      "titles": [],
+      "safety_ok": true,
+      "latency_ms": 3785,
+      "max_similarity": 0.608242,
+      "expected_similarity": null,
+      "expected_retrieved": false
+    }
+  ]
+}

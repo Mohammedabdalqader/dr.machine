@@ -7,9 +7,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Screen } from '@/components/ui/screen';
-import { ErrorBox } from '@/components/ui/state-views';
+import { ListRow } from '@/components/ui/list-row';
+import { Empty, ErrorBox } from '@/components/ui/state-views';
 import { Spacing } from '@/constants/theme';
 import { useQuery } from '@/hooks/use-query';
+import { listDiagnoses } from '@/lib/diagnosis';
 import { supabase } from '@/lib/supabase';
 import { REVIEWER_ROLES } from '@/lib/types';
 import { useAuth } from '@/providers/auth-provider';
@@ -37,6 +39,10 @@ export default function HomeScreen() {
     return { machines, approved, drafts, cases };
   }, [reviewer]);
 
+  // Engineers handle escalations; everyone sees their recent diagnoses (row-level security scopes them).
+  const escalations = useQuery(() => (reviewer ? listDiagnoses({ escalated: true, limit: 10 }) : Promise.resolve([])), [reviewer]);
+  const recent = useQuery(() => listDiagnoses({ limit: 5 }));
+
   const tiles = [
     { label: t('home.machines'), value: stats.data?.machines },
     { label: t('home.approved'), value: stats.data?.approved },
@@ -57,6 +63,8 @@ export default function HomeScreen() {
         </AppText>
       </View>
 
+      <Button label={t('diagnose.start')} onPress={() => router.push('/scan')} />
+
       {stats.error ? <ErrorBox message={stats.error} onRetry={stats.reload} /> : null}
 
       <View style={styles.tiles}>
@@ -74,12 +82,36 @@ export default function HomeScreen() {
         <Button label={t('home.reviewNow')} onPress={() => router.navigate('/knowledge')} />
       ) : null}
 
-      <Card>
-        <AppText variant="body" color="textSecondary">
-          {t('home.diagnoseSoon')}
-        </AppText>
-        <Button label={t('tabs.machines')} variant="secondary" onPress={() => router.navigate('/machines')} />
-      </Card>
+      {reviewer ? (
+        <View style={styles.section}>
+          <AppText variant="heading">{t('diagnose.escalations')}</AppText>
+          {escalations.data && !escalations.data.length ? <Empty message={t('diagnose.noEscalations')} /> : null}
+          {escalations.data?.map((d) => (
+            <ListRow
+              key={d.id}
+              title={d.input_text || d.input_error_code || '—'}
+              subtitle={[d.machine?.tag, d.escalated_at?.slice(0, 16).replace('T', ' '), d.escalation_note].filter(Boolean).join(' · ')}
+              onPress={() => router.push({ pathname: '/diagnosis/[id]', params: { id: d.id } })}
+            />
+          ))}
+        </View>
+      ) : null}
+
+      {recent.data?.length ? (
+        <View style={styles.section}>
+          <AppText variant="heading">{t('diagnose.recent')}</AppText>
+          {recent.data.map((d) => (
+            <ListRow
+              key={d.id}
+              title={d.causes[0]?.title ?? t('diagnose.notEnoughTitle')}
+              subtitle={[d.machine?.tag, d.input_text || d.input_error_code, d.created_at.slice(0, 16).replace('T', ' ')]
+                .filter(Boolean)
+                .join(' · ')}
+              onPress={() => router.push({ pathname: '/diagnosis/[id]', params: { id: d.id } })}
+            />
+          ))}
+        </View>
+      ) : null}
     </Screen>
   );
 }
@@ -89,4 +121,5 @@ const styles = StyleSheet.create({
   badges: { flexDirection: 'row', gap: Spacing.sm },
   tiles: { flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.sm },
   tile: { flexGrow: 1, flexBasis: '45%' },
+  section: { gap: Spacing.sm },
 });

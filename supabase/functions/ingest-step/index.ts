@@ -363,13 +363,14 @@ async function structureGroup(ctx: Ctx, group: { id: string; label: string; case
     ).values(),
   ];
 
-  const { manual_refs_used: _used, ...fields } = structured;
+  const { manual_refs_used: _used, model_specific: modelSpecific, ...fields } = structured;
   const { data: record, error: insertError } = await admin
     .from('fault_records')
     .insert({
       ...fields,
       company_id: doc.company_id,
-      model_id: modelId,
+      // Cases seen on one model don't make a fault model-specific; the model decides from the manual.
+      model_id: modelSpecific ? modelId : null,
       estimated_minutes: estimatedMinutes,
       status: 'draft',
       source_document_id: doc.id,

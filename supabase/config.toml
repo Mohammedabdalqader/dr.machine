@@ -430,3 +430,6 @@ verify_jwt = false
 
 [functions.ingest-step]
 verify_jwt = false
+
+[functions.diagnose]
+verify_jwt = false

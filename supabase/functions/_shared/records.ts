@@ -101,3 +101,77 @@ export function toVector(values: number[]): string {
 /** Record columns returned to clients (never the embedding vector). */
 export const RECORD_COLUMNS =
   'id, company_id, model_id, title, component, symptoms, error_codes, root_cause, fix_steps, parts, tools, estimated_minutes, safety_notes, requires_qualified, status, version, source_document_id, manual_refs, created_by, approved_by, approved_at, created_at, updated_at';
+
+export type RecordTranslation = {
+  version: number;
+  title: string;
+  symptoms: string;
+  root_cause: string;
+  fix_steps: string[];
+  safety_notes: string[];
+  parts: string[];
+  tools: string[];
+};
+
+type Translatable = Omit<RecordTranslation, 'version'>;
+
+/**
+ * Arabic version of a record for technicians working in Arabic. Part numbers,
+ * codes and units stay as written. Returns null on failure: the record then
+ * simply falls back to English, it never blocks an approval.
+ */
+export async function translateRecord(
+  ai: import('./ai/index.ts').AIProvider,
+  record: Translatable,
+  version: number,
+): Promise<RecordTranslation | null> {
+  const source: Translatable = {
+    title: record.title,
+    symptoms: record.symptoms,
+    root_cause: record.root_cause,
+    fix_steps: record.fix_steps,
+    safety_notes: record.safety_notes,
+    parts: record.parts,
+    tools: record.tools,
+  };
+  try {
+    const { data } = await ai.chatJSON({
+      purpose: 'extraction',
+      temperature: 0,
+      maxTokens: 2000,
+      messages: [
+        {
+          role: 'system',
+          content:
+            'Translate this industrial maintenance record into clear Modern Standard Arabic as used by technicians in Jordan. ' +
+            'Keep error codes, part numbers, model names, units and values exactly as written. Keep lists in the same order ' +
+            'and with the same number of items. Return JSON with exactly the same keys.',
+        },
+        { role: 'user', content: JSON.stringify(source) },
+      ],
+      validate: (v) => {
+        const o = v as Record<string, unknown>;
+        const list = (k: keyof Translatable) => {
+          const value = o[k];
+          const expected = (source[k] as string[]).length;
+          if (!Array.isArray(value) || value.length !== expected) throw new Error(`${k}: expected ${expected} items`);
+          return value.map(String);
+        };
+        return {
+          title: String(o.title ?? ''),
+          symptoms: String(o.symptoms ?? ''),
+          root_cause: String(o.root_cause ?? ''),
+          fix_steps: list('fix_steps'),
+          safety_notes: list('safety_notes'),
+          parts: list('parts'),
+          tools: list('tools'),
+        };
+      },
+      mock: () => source,
+    });
+    return { version, ...data };
+  } catch (err) {
+    console.warn('translation failed', (err as Error).message);
+    return null;
+  }
+}
